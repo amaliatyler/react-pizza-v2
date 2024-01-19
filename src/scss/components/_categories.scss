@@ -4,7 +4,8 @@
   ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    row-gap: 15px;
+    justify-content: space-evenly;
 
     li {
       background-color: #f9f9f9;

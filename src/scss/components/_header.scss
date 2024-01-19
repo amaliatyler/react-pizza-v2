@@ -3,6 +3,12 @@
 .header {
   border-bottom: 1px solid $gray-line;
   padding: 40px 0;
+  @media (max-width: $md4+px) {
+    .container {
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
 
   .container {
     display: flex;
