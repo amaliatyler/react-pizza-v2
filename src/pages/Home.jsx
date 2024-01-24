@@ -45,7 +45,7 @@ function Home() {
     window.scrollTo(0, 0);
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
-  // TODO испавить ошибку
+  // TODO исправить ошибку
   const pizzas = items.map((pizza) => <PizzaBlock key={pizza.id} {...pizza} />);
   const skeletons = [...new Array(6)].map((_, i) => <Skeleton key={i} />);
 
