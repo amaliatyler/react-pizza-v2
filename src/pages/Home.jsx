@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import axios from 'axios';
 
 import { setCategoryId } from '../redux/slices/filterSlice';
 
@@ -31,19 +32,16 @@ function Home() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(
-      `https://65a91a20219bfa3718687154.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`,
-    )
+
+    axios
+      .get(
+        `https://65a91a20219bfa3718687154.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`,
+      )
       .then((res) => {
-        return res.json();
-      })
-      .then((arr) => {
-        setItems(arr);
+        setItems(res.data);
         setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error('There was a problem with the Fetch operation:', error);
       });
+
     window.scrollTo(0, 0);
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
