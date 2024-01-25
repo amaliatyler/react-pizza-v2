@@ -3,19 +3,20 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { setSort } from '../redux/slices/filterSlice';
 
+export const sortList = [
+  { name: 'популярности (по возрастанию)', sortProperty: 'rating' },
+  { name: 'популярности (по убыванию)', sortProperty: '-rating' },
+  { name: 'цене (по возрастанию)', sortProperty: 'price' },
+  { name: 'цене (по убыванию)', sortProperty: '-price' },
+  { name: 'алфавиту (по возрастанию)', sortProperty: 'title' },
+  { name: 'алфавиту (по убыванию)', sortProperty: '-title' },
+];
+
 function Sort() {
   const dispatch = useDispatch();
   const sort = useSelector((state) => state.filter.sort);
 
   const [isOpen, setIsOpen] = useState(false);
-  const list = [
-    { name: 'популярности (по возрастанию)', sortProperty: 'rating' },
-    { name: 'популярности (по убыванию)', sortProperty: '-rating' },
-    { name: 'цене (по возрастанию)', sortProperty: 'price' },
-    { name: 'цене (по убыванию)', sortProperty: '-price' },
-    { name: 'алфавиту (по возрастанию)', sortProperty: 'title' },
-    { name: 'алфавиту (по убыванию)', sortProperty: '-title' },
-  ];
 
   const handleSelect = (obj) => {
     dispatch(setSort(obj));
@@ -40,7 +41,7 @@ function Sort() {
       </div>
       <div className={isOpen ? 'sort__popup active' : 'sort__popup'}>
         <ul>
-          {list.map((obj, i) => (
+          {sortList.map((obj, i) => (
             <li
               key={i}
               className={sort.sortProperty === obj.sortProperty ? 'active' : ''}
