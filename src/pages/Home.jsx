@@ -40,6 +40,11 @@ function Home() {
       .then((res) => {
         setItems(res.data);
         setIsLoading(false);
+      })
+      .catch((error) => {
+        if (error.response.status === 404) {
+          console.log(`Ошибка ${error.response.status}, ${error}`);
+        }
       });
 
     window.scrollTo(0, 0);
