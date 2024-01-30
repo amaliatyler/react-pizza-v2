@@ -15,20 +15,20 @@ html {
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  color: $black;
+  color: $text_white;
 }
 
-a,
-span,
-p,
-b,
-h1,
-h2,
-h3,
-h4,
-h5 {
-  color: $black;
-}
+// a,
+// span,
+// p,
+// b,
+// h1,
+// h2,
+// h3,
+// h4,
+// h5 {
+//   color: $text_white;
+// }
 
 h1 {
   font-size: 48px;
@@ -52,4 +52,13 @@ a {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Opera and Firefox */
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
 }

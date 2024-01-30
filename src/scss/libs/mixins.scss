@@ -1,0 +1,55 @@
+@mixin gradient-transition($gradient, $borderRadius) {
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease-out;
+  &::before {
+    content: '';
+    background: $gradient;
+    display: block;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    opacity: 1;
+    border-radius: $borderRadius;
+    z-index: -1;
+    transition: all 0.3s ease-out;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 0;
+    }
+  }
+}
+
+@mixin gradient-transition-invert($gradient, $borderRadius) {
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease-out;
+  &::before {
+    content: '';
+    background: transparent;
+    display: block;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border-radius: $borderRadius;
+    z-index: -1;
+    transition: all 0.3s ease-out;
+  }
+
+  &:hover {
+    &::before {
+      background: $gradient;
+      opacity: 1;
+    }
+  }
+}

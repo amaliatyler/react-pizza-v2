@@ -1,8 +1,7 @@
 @import '../variables';
 
 .header {
-  border-bottom: 1px solid $gray-line;
-  padding: 40px 0;
+  padding: 35px 0;
   @media (max-width: $md4+px) {
     .container {
       flex-direction: column;
@@ -17,7 +16,12 @@
   }
 
   &__logo {
-    display: flex;
+    font-size: clamp(20px, 35px, 25px);
+    font-weight: 800;
+    background: linear-gradient(262deg, #ff6432 12.12%, #ffa228 86.72%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 
     img {
       margin-right: 15px;

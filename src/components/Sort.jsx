@@ -44,7 +44,7 @@ function Sort() {
           {sortList.map((obj, i) => (
             <li
               key={i}
-              className={sort.sortProperty === obj.sortProperty ? 'active' : ''}
+              className={sort.sortProperty === obj.sortProperty ? '' : ''}
               onClick={() => handleSelect(obj)}>
               {obj.name}
             </li>

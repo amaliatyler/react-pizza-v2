@@ -1,0 +1,72 @@
+.footer {
+  background: linear-gradient(246deg, #170a00 4.96%, #170600 33.7%, #0f0700 68.41%, #170a00 96.42%);
+  padding-block: clamp(50px, 60px, 70px);
+  &__content {
+    display: flex;
+    gap: clamp(30px, 85px, 85px);
+    margin-bottom: clamp(30px, 100px, 100px);
+  }
+  &__logo {
+    font-weight: 800;
+    line-height: 110%;
+    background: linear-gradient(262deg, #ff6432 12.12%, #ffa228 86.72%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: clamp(16px, 20px, 20px);
+  }
+
+  &__columns {
+    display: grid;
+    gap: clamp(30px, 85px, 85px);
+    @media (min-width: $md2 + px) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  &-column > li:first-child > a {
+    color: $text_lightgrey;
+  }
+
+  &__link {
+    color: $text_grey;
+    line-height: 120%;
+    font-size: clamp(16px, 18px, 18px);
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+    a {
+      color: $text_grey;
+      transition: all 0.3s ease-out;
+      &:hover {
+        color: $text_lightgrey;
+      }
+    }
+  }
+
+  &__number {
+    font-size: clamp(16px, 20px, 20px);
+    background: linear-gradient(262deg, #ff612e 12.12%, #ffa32b 86.72%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__contacts {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    a {
+      transition: all 0.3s ease-out;
+      &:focus-visible,
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+  }
+}

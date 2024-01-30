@@ -10,9 +10,11 @@ import Categories from '../components/Categories';
 import Sort, { sortList } from '../components/Sort';
 import PizzaBlock from '../components/PizzaBlock';
 import Skeleton from '../components/Skeleton';
-import Pagination from '../Pagination';
+import Pagination from '../components/Pagination/index';
 
 import { SearchContext } from '../App';
+import About from '../components/about';
+import Welcome from '../components/welcome/Welcome';
 
 function Home() {
   const navigate = useNavigate();
@@ -58,26 +60,30 @@ function Home() {
       });
   };
 
-  // Если измениили параметры и был первый рендер
+  // этот хук отвечает за создание строки поиска
+  // и передачу параметров в URL
   useEffect(() => {
-    // выполняем действия только если первый рендер уже был
-    // первый ренндер меняет isMounted с false на true
+    // код выполняется, если изменили параметры и был первый рендер
     if (isMounted.current) {
       const queryString = qs.stringify({
         sortProperty: sort.sortProperty,
         categoryId,
         currentPage,
       });
+      // передаем строку запроса в URL
       navigate(`?${queryString}`);
     }
+    // первый рендер меняет isMounted с false на true
     // сохраняем информацию о том, что рендер завершился
     isMounted.current = true;
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
-  // Если был первый рендер, то проверяем URL-параметры и сохраняем их в Redux
+  // этот хук отвечает за парсинг параметров из URL
+  // и сохранение их в Redux
   useEffect(() => {
+    // Если был первый рендер, то проверяем URL-параметры и сохраняем их в Redux
     if (window.location.search) {
-      // с помощью substring удаляем вопросительный знак из строки
+      // удаляем вопросительный знак из строки
       const params = qs.parse(window.location.search.substring(1));
 
       const sort = sortList.find((obj) => obj.sortProperty === params.sortProperty);
@@ -113,15 +119,21 @@ function Home() {
   const skeletons = [...new Array(6)].map((_, i) => <Skeleton key={i} />);
 
   return (
-    <div className="container">
-      <div className="content__top">
-        <Categories value={categoryId} onChangeCategory={onChangeCategory} />
-        <Sort />
+    <>
+      <Welcome />
+      <div className="content">
+        <div className="container">
+          <div className="content__top">
+            <Categories value={categoryId} onChangeCategory={onChangeCategory} />
+            <Sort />
+          </div>
+          <h2 className="content__title">Все пиццы</h2>
+          <div className="content__items">{isLoading ? skeletons : pizzas}</div>
+          <Pagination currentPage={currentPage} onChangePage={onChangePage} />
+        </div>
       </div>
-      <h2 className="content__title">Все пиццы</h2>
-      <div className="content__items">{isLoading ? skeletons : pizzas}</div>
-      <Pagination currentPage={currentPage} onChangePage={onChangePage} />
-    </div>
+      <About />
+    </>
   );
 }
 

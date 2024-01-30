@@ -8,14 +8,15 @@ function Header() {
   return (
     <div className="header">
       <div className="container">
-        <Link to="/">
-          <div className="header__logo">
+        <Link to="/" className="header__logo">
+          pizzashop
+          {/* <div className="header__logo">
             <img width="38" src={logoSvg} alt="Pizza logo"></img>
             <div>
               <h1>React Pizza</h1>
               <p>самая вкусная пицца во вселенной</p>
             </div>
-          </div>
+          </div> */}
         </Link>
         <Search />
         <div className="header__cart">

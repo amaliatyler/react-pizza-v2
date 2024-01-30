@@ -1,0 +1,103 @@
+.welcome {
+  padding-block: 35px;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__info {
+    max-width: 540px;
+
+    h1 {
+      font-size: 70px;
+      color: $text_white;
+      margin-bottom: 30px;
+    }
+
+    p {
+      max-width: 400px;
+      &:first-of-type {
+        margin-bottom: 24px;
+      }
+      &:last-of-type {
+        margin-bottom: 12px;
+      }
+    }
+  }
+
+  &__video {
+    margin-bottom: 60px;
+    transition: all 0.3s ease-out;
+    position: relative;
+    display: block;
+    width: min-content;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: $brown;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      z-index: 2;
+      border-radius: 84.374px;
+      border: 3px solid #ff5924;
+      box-shadow: 0px 7.594px 33.75px 0px rgba(255, 107, 0, 0.06);
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      background: linear-gradient(261deg, #fe9c1c -17.13%, #ff5e2a 86.76%);
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-left: 25px solid #ff5924;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-42%);
+      z-index: 6;
+    }
+    &:hover {
+      img {
+        filter: brightness(100%);
+      }
+    }
+
+    img {
+      transition: all 0.3s ease-out;
+      border-radius: 23px;
+      filter: brightness(70%);
+    }
+  }
+  &__img {
+    border-radius: 46px;
+    position: relative;
+  }
+
+  &__icon {
+    z-index: 2;
+    position: absolute;
+    max-height: 250px;
+    max-width: 250px;
+    &:first-of-type {
+      bottom: 0;
+      left: 0;
+      transform: translateX(-50%) translateY(30%);
+    }
+
+    &:last-of-type {
+      top: 0;
+      right: 0;
+      transform: translateX(50%) translateY(-40%);
+    }
+  }
+
+  p:first-child {
+    margin-bottom: 24px;
+  }
+}
