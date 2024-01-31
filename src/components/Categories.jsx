@@ -8,7 +8,7 @@ function Categories({ value, onChangeCategory }) {
       <ul>
         {categories.map((categoryName, i) => (
           <li key={i} className={i === value ? 'active' : ''} onClick={() => onChangeCategory(i)}>
-            {categoryName}
+            <a href="#">{categoryName}</a>
           </li>
         ))}
       </ul>

@@ -120,7 +120,7 @@ function Home() {
 
   return (
     <>
-      <Welcome />
+      {/* <Welcome /> */}
       <div className="content">
         <div className="container">
           <div className="content__top">
@@ -132,7 +132,7 @@ function Home() {
           <Pagination currentPage={currentPage} onChangePage={onChangePage} />
         </div>
       </div>
-      <About />
+      {/* <About /> */}
     </>
   );
 }

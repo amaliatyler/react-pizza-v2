@@ -28,6 +28,7 @@
       }
 
       &.active {
+        border-color: transparent;
         &::before {
           opacity: 1;
           background: $gradient;

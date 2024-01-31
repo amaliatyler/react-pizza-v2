@@ -3,34 +3,51 @@
 .pizza-block {
   width: 280px;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
   gap: 20px;
-  &-wrapper {
-    display: flex;
-    justify-content: center;
+  border-radius: 29.531px;
+  background: #210a01;
+  padding: 15px 10px;
+  justify-content: center;
+
+  &__descr {
   }
 
   &__image {
-    width: 260px;
+    height: 160px;
+    width: 160px;
+    margin-bottom: 10px;
   }
 
   &__title {
     font-size: 20px;
     font-weight: 900;
     letter-spacing: 1%;
-    margin-bottom: 20px;
     color: $text_white;
   }
 
-  &__selector {
+  &__selectors {
     display: flex;
     border-radius: 10px;
     flex-direction: column;
+    align-items: center;
+    flex: 1 1 auto;
     padding: 6px;
+    gap: 20px;
 
-    ul {
+    ul.pizza-block__dough-type {
+      justify-content: center;
+      display: flex;
+      gap: 10px;
+      li {
+        padding: 5px 10px;
+        border-radius: 30px;
+        @include gradient-transition-invert($gradient, 30px);
+      }
+    }
+
+    ul.pizza-block__size {
       display: flex;
       flex: 1;
       align-items: center;
@@ -39,7 +56,6 @@
 
       li {
         padding: 14px;
-        border: 1px solid $text_lightgrey;
         border-radius: 50%;
         background-color: transparent;
         width: 40px;
@@ -54,9 +70,6 @@
         position: relative;
         // @include noselect();
         @include gradient-transition-invert($gradient, 50%);
-        &:hover {
-          border: none;
-        }
         &.active {
           background: $gradient;
           border: none;
@@ -81,14 +94,13 @@
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      border: 1px solid $text_white;
       position: relative;
       z-index: 1;
       @include gradient-transition-invert($gradient, 50%);
-      &:hover {
-        color: $text_white;
-        border: none;
-      }
+      // &:hover {
+      //   color: $text_white;
+      //   border: none;
+      // }
     }
   }
 

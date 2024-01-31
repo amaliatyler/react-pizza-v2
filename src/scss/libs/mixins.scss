@@ -19,7 +19,8 @@
     transition: all 0.3s ease-out;
   }
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     &::before {
       opacity: 0;
     }
@@ -30,6 +31,7 @@
   position: relative;
   z-index: 1;
   transition: all 0.3s ease-out;
+  border: 1px solid $text_lightgrey;
   &::before {
     content: '';
     background: transparent;
@@ -46,7 +48,9 @@
     transition: all 0.3s ease-out;
   }
 
-  &:hover {
+  &:hover,
+  &:focus-within {
+    border-color: transparent;
     &::before {
       background: $gradient;
       opacity: 1;

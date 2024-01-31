@@ -13,7 +13,6 @@ function Switch() {
         <span className={orderActive ? 'active' : 'switch__order'}>To order</span>
         <span className={orderActive ? 'switch__menu' : 'active'}>Pizza-Menu</span>
       </div>
-      3
     </div>
   );
 }
